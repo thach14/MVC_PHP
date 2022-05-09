@@ -6,7 +6,9 @@ class App {
     function __construct()
     {
         $arr = $this->XuLyURL();
-        
+        if(!isset($arr)){
+            $arr = ["Home","SayHi"];
+        }
         // Xu Ly controller
         if (file_exists("./mvc/controllers/".$arr[0].".php"))
         {
