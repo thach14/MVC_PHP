@@ -6,6 +6,7 @@ class App {
     function __construct()
     {
         $arr = $this->XuLyURL();
+        
         // Xu Ly controller
         if (file_exists("./mvc/controllers/".$arr[0].".php"))
         {
@@ -13,7 +14,7 @@ class App {
             unset ($arr[0]);
         }
         require_once "./mvc/controllers/".$this->controller.".php";
-
+        $this->controller = new $this->controller;
         // Xy ly action
         if (isset($arr[1])){
             if (method_exists($this->controller,$arr[1])){
