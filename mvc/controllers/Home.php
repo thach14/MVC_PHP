@@ -10,7 +10,11 @@ class Home extends Controller{
     function NamSinh($namsinh)
     {
         $sv = $this->model("SinhVienModel");
-        echo $sv->NamSinh($namsinh);
+        $kq= $sv->NamSinh($namsinh);
+        $this->view("admin",[
+            "NamSinh"=>$kq,
+            "option" =>"customer",
+        ]);
     }
 }
 ?>
